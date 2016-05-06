@@ -1,0 +1,26 @@
+{
+  "name": "selfblog",
+  "version": "0.0.0",
+  "description": "personal simple blog",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pavel Kuznetsov",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "gulp-rimraf": "~0.2",
+    "gulp-concat": "~2.6.0",
+    "gulp": "~3.9.0",
+    "gulp-uglify": "~1.5.1",
+    "less": "~2.5.3",
+    "gulp-less": "~3.0.5",
+    "bower": "~1.7.2"
+  },
+  "devDependencies": {
+    "gulp-sourcemaps": "~1.6.0"
+  }
+}
