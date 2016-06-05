@@ -3,11 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Admin Zone{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/easyadmin/stylesheet/bootstrap.min.css') }}" rel="stylesheet">
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicons/favicon.ico') }}" />
     </head>
     <body>
+    <div class="container">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+        {#{% block javascripts %}#}
+            {#<script src="{{ asset('admin/js/admin.js') }}"></script>#}
+        {#{% endblock %}#}
+    {#</body>#}
 </html>

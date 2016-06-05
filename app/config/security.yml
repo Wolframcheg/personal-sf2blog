@@ -6,15 +6,13 @@ security:
             algorithm: bcrypt
             cost: 12
 
-
-
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         in_memory:
             memory:
                 users:
-                   admin:
-                      password: $2y$12$F50g4VwBRRrdpsg2A0hNI.LQ3NcxbShwZrJ06P2cGKbY5Kk61Gkw.
+                   %username%:
+                      password: %crypted_pass%
                       roles: 'ROLE_ADMIN'
 
     firewalls:
@@ -30,10 +28,14 @@ security:
               check_path: login
               username_parameter: "login[username]"
               password_parameter: "login[password]"
+              default_target_path: admin_main_page
             logout:
               path:   logout
               target: homepage
 
     access_control:
-        # require ROLE_ADMIN for /admin*
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/%admin_prefix_route%/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/efconnect, role: ROLE_ADMIN }
+        - { path: ^/elfinder, role: ROLE_ADMIN }
+        - { path: ^/%admin_prefix_route%, roles: ROLE_ADMIN }
+

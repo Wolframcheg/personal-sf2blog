@@ -1,5 +1,23 @@
-app:
-    resource: "@AppBundle/Controller/"
+#admin:
+#    resource: "@AppBundle/Controller/Admin"
+#    type:     annotation
+#    prefix:   /%admin_prefix_route%
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /%admin_prefix_route%
+
+auth:
+        resource: "@AppBundle/Controller/AuthController.php"
+        type:     annotation
+        prefix:   /%admin_prefix_route%
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+front:
+    resource: "@AppBundle/Controller/Front"
     type:     annotation
 
 logout:

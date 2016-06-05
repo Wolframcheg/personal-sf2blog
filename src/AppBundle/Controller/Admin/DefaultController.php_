@@ -1,0 +1,66 @@
+<?php
+
+namespace AppBundle\Controller\Admin;
+
+use AppBundle\Dto\PostDto;
+use AppBundle\Entity\Post;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
+class DefaultController extends Controller
+{
+    /**
+     * @Route("", name="admin_main_page")
+     * @Template()
+     *
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $posts = $em->getRepository('AppBundle:Post')->findAll();
+
+        return ['posts' => $posts];
+    }
+
+    /**
+     * @Route("/create", name="admin_post_create")
+     * @Route("/update/{id}", name="admin_post_update")
+     * @ParamConverter("post", class="AppBundle:Post")
+     * @Template()
+     */
+    public function createAction(Request $request, Post $post = null)
+    {
+        if (!$post) {
+            $post = new Post();
+        }
+        $em = $this->getDoctrine()->getManager();
+
+     //   $postDto = new PostDto($post, $em);
+
+        $form = $this->createForm('AppBundle\Form\PostType', $post, ['em' => $em]);
+        $form->add('submit', SubmitType::class, ['label' => 'Save', 'attr' => ['class' => 'btn-success']]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            if (!$post->getId()) {
+                $em->persist($post->getObject());
+            }
+            $em->flush();
+
+            return $this->redirectToRoute('admin_main_page');
+        }
+
+        return [
+            'post' => $post,
+            'form' => $form->createView()
+        ];
+    }
+
+}

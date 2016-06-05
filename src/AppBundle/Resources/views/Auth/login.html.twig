@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'adminbase.html.twig' %}
 {% block body %}
-    <div class="container">
-        <div class="login-box">
-            <h1 class="login-logo">{% block title %}Login{% endblock %}</h1>
-            {% if error %}
-                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-            {{ form(form) }}
+        <div class="row">
+            <div class="col-lg-offset-4 col-lg-4">
+                <h1 class="login-logo">{% block title %}{{ 'Admin zone'|trans  }}{% endblock %}</h1>
+                {% if error %}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                {{ form(form) }}
+            </div>
         </div>
-    </div>
 {% endblock %}

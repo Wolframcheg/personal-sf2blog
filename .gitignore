@@ -18,3 +18,8 @@
 npm-debug.log
 /node_modules
 /bower_components
+/web/assets
+/web/uploads
+/web/fonts
+/web/front
+/components

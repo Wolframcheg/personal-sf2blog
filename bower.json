@@ -1,0 +1,20 @@
+{
+  "name": "selfblog",
+  "description": "personal simple blog",
+  "main": "index.js",
+  "authors": [
+    "Pavel Kuznetsov"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

@@ -4,3 +4,16 @@ parameters:
 #    parameter_name: value
 
 services:
+    custom_vich_directory_namer:
+        class: AppBundle\Services\CustomVichDirectoryNamer
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
+        arguments:
+            - '@doctrine'
+        tags:
+          - {name: twig.extension}

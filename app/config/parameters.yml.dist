@@ -17,3 +17,11 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    locale:            ru
+    admin_prefix_route: admin
+    username: admin
+    #pass equals 'admin'
+    crypted_pass: $2y$12$FPDbfMqHSw86d/zFRBNjHeO9PXrbNWihp7DMaZCne3SNa43BY3.a6
+    post_image_path: /uploads/images/post
+    main_title: 'Тема блога'
+    name_author: 'Василий'
