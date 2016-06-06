@@ -1,3 +1,3 @@
 {% for tag in tags %}
-    <a class="label label-info" rel="nofollow" target="_blank" href="{{ path('tags',{'tags': tag.name}) }}">{{ tag.name }}</a>
+    <a class="label label-info" rel="nofollow" target="_blank" href="{{ path('tags',{'tag': tag.name}) }}">{{ tag.name }}</a>
 {% endfor %}
