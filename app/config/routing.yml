@@ -21,4 +21,4 @@ front:
     type:     annotation
 
 logout:
-    path: /logout
+    path: /%admin_prefix_route%/logout
