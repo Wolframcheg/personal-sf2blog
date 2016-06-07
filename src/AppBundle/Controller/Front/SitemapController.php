@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Thepixeldeveloper\Sitemap\Output;
 use Thepixeldeveloper\Sitemap\Sitemap;
 use Thepixeldeveloper\Sitemap\SitemapIndex;
@@ -21,7 +22,7 @@ class SitemapController extends Controller
     {
         $sitemapIndex = new SitemapIndex();
 
-        $url = (new Url($this->generateUrl('homepage')))
+        $url = (new Url($this->generateUrl('homepage', [], UrlGeneratorInterface::ABSOLUTE_URL)))
             ->setLastMod(date('c',time()))
             ->setPriority(1)
             ;
@@ -33,7 +34,7 @@ class SitemapController extends Controller
          * @var Post $post
          */
         foreach ($posts as $post){
-            $url = (new Url($this->generateUrl('post_view', ['slug' => $post->getSlug()])))
+            $url = (new Url($this->generateUrl('post_view', ['slug' => $post->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL)))
                 ->setLastMod($post->getUpdatedAt()->format('c'))
                 ->setPriority('0.75')
             ;
