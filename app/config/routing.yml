@@ -16,8 +16,12 @@ auth:
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
-front:
-    resource: "@AppBundle/Controller/Front"
+front_sitemap:
+    resource: "@AppBundle/Controller/Front/SitemapController.php"
+    type:     annotation
+
+front_main:
+    resource: "@AppBundle/Controller/Front/MainController.php"
     type:     annotation
 
 logout:

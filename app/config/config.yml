@@ -169,6 +169,7 @@ easy_admin:
     design:
         form_theme: 'vertical'
         menu:
+            - { label: 'To Front', route: 'homepage', target: '_blank' }
             - { entity: Post, icon: 'file-text' }
             - { entity: Tag, icon: 'hashtag' }
         assets:

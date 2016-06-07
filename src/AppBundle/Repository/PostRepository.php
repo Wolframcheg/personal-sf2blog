@@ -14,8 +14,10 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('post')
             ->select('post, tag')
             ->leftJoin('post.tags', 'tag')
-            ->andWhere('tag.name = :name')
+            ->where('tag.name = :name')
+            ->andWhere('post.isPublish = :isPublish')
             ->setParameter('name', $tagName)
+            ->setParameter('isPublish', 1)
             ->orderBy('post.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
@@ -26,11 +28,25 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
         return $this->createQueryBuilder('post')
             ->select('post, tag')
             ->leftJoin('post.tags', 'tag')
-            ->where('post.title LIKE :word')
-            ->orWhere('post.content LIKE :word')
+            ->andWhere('post.isPublish = :isPublish')
+            ->andWhere('post.title LIKE :word OR post.content LIKE :word')
             ->setParameter('word', '%' . $word . '%')
+            ->setParameter('isPublish', 1)
             ->orderBy('post.createdAt', 'DESC')
             ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function forSitemap()
+    {
+        return $this->createQueryBuilder('post')
+            ->select('post')
+            ->where('post.isPublish = :isPublish')
+            ->setParameter('isPublish', 1)
+            ->orderBy('post.publishedAt', 'DESC')
+            ->getQuery()
+            ->useResultCache(true, 600, 'sitemap_cache_id')
             ->getResult()
             ;
     }

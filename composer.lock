@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c32f716a275dfbd3bbe716222374a67f",
-    "content-hash": "f0176a9c641f7a7176b74bcfe5a55a6a",
+    "hash": "3ec3437b766fd9e8e2fb99abf6ecaf35",
+    "content-hash": "fde5cc717c5b3004d60d8de0634c987c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2827,6 +2827,48 @@
                 "framework"
             ],
             "time": "2016-05-09 22:13:31"
+        },
+        {
+            "name": "thepixeldeveloper/sitemap",
+            "version": "4.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ThePixelDeveloper/Sitemap.git",
+                "reference": "ccf9c51c409f721ac4168f70cea6ffe318591737"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ThePixelDeveloper/Sitemap/zipball/ccf9c51c409f721ac4168f70cea6ffe318591737",
+                "reference": "ccf9c51c409f721ac4168f70cea6ffe318591737",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thepixeldeveloper\\Sitemap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathew Davies",
+                    "email": "thepixeldeveloper@googlemail.com",
+                    "homepage": "http://mathew-davies.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "XML sitemap generation",
+            "keywords": [
+                "Sitemap",
+                "xml"
+            ],
+            "time": "2016-04-26 21:01:21"
         },
         {
             "name": "twig/extensions",

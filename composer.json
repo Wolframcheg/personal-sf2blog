@@ -26,7 +26,8 @@
         "vich/uploader-bundle": "^1.0",
         "egeloen/ckeditor-bundle": "^4.0",
         "stfalcon/tinymce-bundle": "^2.0",
-        "helios-ag/fm-elfinder-bundle": "^6.1"
+        "helios-ag/fm-elfinder-bundle": "^6.1",
+        "thepixeldeveloper/sitemap": "^4.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

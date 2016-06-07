@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class MainController extends Controller
 {
     /**
      * @Route("/", name="homepage")
@@ -26,7 +26,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/tag/{tag}", name="tags")
-     * @Template("AppBundle:Front/Default:index.html.twig")
+     * @Template("AppBundle:Front/Main:index.html.twig")
      */
     public function searchByTagAcrion(Request $request, $tag)
     {
@@ -40,7 +40,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/search", name="search")
-     * @Template("AppBundle:Front/Default:index.html.twig")
+     * @Template("AppBundle:Front/Main:index.html.twig")
      */
     public function searchAction(Request $request)
     {
@@ -59,7 +59,6 @@ class DefaultController extends Controller
      */
     public function postViewAction(Request $request, Post $post)
     {
-
         return [
             'post' => $post,
         ];
