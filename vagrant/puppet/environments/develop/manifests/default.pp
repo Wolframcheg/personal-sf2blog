@@ -41,5 +41,5 @@ mysql::db { 'selfblog':
 }
 
 class { 'nodejs':
-  version => 'v0.10.46',
+  version => 'v0.10.25',
 }

@@ -1,9 +1,14 @@
 #!/bin/sh
 
-cd /var/www/selfblog;
+#mkdir /home/vagrant/node_modules
+cd /var/www/selfblog
+#ln -s /home/vagrant/node_modules/ node_modules
 
-bin/console assets:install --symlink
-npm install
+php bin/console assets:install --symlink
 
-./node_modules/.bin/bower install
-./node_modules/.bin/gulp
+sudo su vagrant -c "npm install"
+npm install -g bower
+npm install -g gulp
+bower install --allow-root
+gulp
+
